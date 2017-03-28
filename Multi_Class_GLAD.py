@@ -13,8 +13,7 @@ import pandas as pd
 import sys
 from scipy import optimize
 
-# warningを吐くがそれについては別途処理をしているので、
-# 出力させないようにしている。
+# warningは別途処理をしている。
 warnings.simplefilter('ignore', RuntimeWarning)
 
 # マルチクラス用のGLAD (Generative model of Labels, Abilities, and Difficulties)
@@ -179,7 +178,6 @@ class MultiGLAD:
         new_alpha = x[:self.n_workers]
         new_beta = x[self.n_workers:]
 
-        #
         y = new_alpha[:, np.newaxis].dot(new_beta[np.newaxis, :])
         sigma = self._sigma(y)
         Isigma = self._Isigma(y)
