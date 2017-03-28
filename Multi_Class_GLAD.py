@@ -243,13 +243,13 @@ class MultiGLAD:
         # 結果出力
         return self.post_z
 
-
-
-
 def main():
-    MGLAD = MultiGLAD(n_labels = 2, n_workers = 89, n_tasks = 100)
-    data = np.array(pd.read_csv("../dataset/ProcessedData/MovieDataset.csv"))
-    Bdata = data[:,:3]
+    # n_labels：候補ラベル数
+    # n_workers：クラウドワーカの数
+    # n_tasks：タスクの数
+    # filename：データが入ったファイル
+    MGLAD = MultiGLAD(n_labels, n_workers, n_tasks)
+    Bdata = np.array(pd.read_csv(filename))
     pred = MGLAD.predict(Bdata)
 
 if __name__ == '__main__':
